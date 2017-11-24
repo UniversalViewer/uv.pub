@@ -10,7 +10,6 @@ import "./helpers/external_links.js";
 
 import { remote } from "electron";
 import jetpack from "fs-jetpack";
-import { greet } from "./hello_world/hello_world";
 import { build } from "biiif";
 import env from "env";
 
@@ -36,8 +35,9 @@ document.addEventListener('drop', function (e) {
 	e.stopPropagation();
 
 	for (let f of e.dataTransfer.files) {
-		console.log('File(s) you dragged here: ', f.path);
+		console.log('dragged: ', f.path);
 		directoryPath = f.path;
+		document.querySelector('#dragarea').innerHTML = f.name;
 	}
 });
 
@@ -59,11 +59,11 @@ document.querySelector('form').onsubmit = function() {
 	}
 	
 	build(directoryPath, url);
+
+	alert('Done!');
+
 	return false; // don't need to actually submit it.
 }
-	
-
-// });
 
 /*
 document.querySelector("#greet").innerHTML = greet();

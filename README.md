@@ -1,8 +1,8 @@
-# universalviewer-electron
+# universalviewer-electron (work in progress)
 
 Quickly generate IIIF for use in the [Universal Viewer](https://universalviewer.io) using a visual interface.
 
-Build with [Electron](http://electron.atom.io).
+Build with [Electron](http://electron.atom.io) and [biiif](http://github.com/edsilv/biiif)
 
 # Quick start
 

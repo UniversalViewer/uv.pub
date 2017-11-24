@@ -12,6 +12,7 @@ body {
   align-items: center;
   font-family: sans-serif;
   color: #525252;
+  /*background-color: #3e104e;*/
 }
 
 a {
@@ -20,5 +21,20 @@ a {
 }
 
 .container {
+  text-align: center;
+}
+
+#url {
+  width: 300px;
+  margin-bottom: 20px;
+}
+
+#dragarea {
+  width: 300px;
+  height: 300px;
+  line-height: 300px;
+  background: #fffac2;
+  border: 1px dashed #797443;
+  margin-bottom: 20px;
   text-align: center;
 }

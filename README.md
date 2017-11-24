@@ -1,16 +1,16 @@
-# electron-boilerplate
+# universalviewer-electron
 
-A minimalistic boilerplate for [Electron runtime](http://electron.atom.io). Tested on macOS, Windows and Linux.  
+Quickly generate IIIF for use in the [Universal Viewer](https://universalviewer.io) using a visual interface.
 
-This project doesn't impose on you any frontend framework and tries to give you only the 'electron' part of technology stack with bare minimum of dependencies. This enables you to pick your favourite tools to build the actual app.
+Build with [Electron](http://electron.atom.io).
 
 # Quick start
 
 The sole development dependency of this project is [Node.js](https://nodejs.org), so make sure you have it installed.
 Then type the following commands known to every Node developer...
 ```
-git clone https://github.com/szwacz/electron-boilerplate.git
-cd electron-boilerplate
+git clone https://github.com/universalviewer/universalviewer-electron.git
+cd universalviewer-electron
 npm install
 npm start
 ```

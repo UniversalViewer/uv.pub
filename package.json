@@ -1,15 +1,15 @@
 {
-  "name": "electron-boilerplate",
-  "productName": "Electron Boilerplate",
-  "description": "Starter for your Electron application",
+  "name": "universalviewer-electron",
+  "productName": "Universal Viewer",
+  "description": "Desktop version of the Universal Viewer",
   "version": "0.0.0",
   "private": true,
-  "author": "Mr. Gumby <mr.gumby@example.com>",
-  "copyright": "© 2017, Gumby inc.",
-  "homepage": "http://example.com",
+  "author": "Edward Silverton <e.silverton@gmail.com>",
+  "copyright": "© 2017, Edward Silverton",
+  "homepage": "http://universalviewer.io",
   "main": "app/background.js",
   "build": {
-    "appId": "com.example.electron-boilerplate",
+    "appId": "io.universalviewer.electron",
     "files": [
       "app/**/*",
       "node_modules/**/*",
@@ -31,6 +31,7 @@
     "release": "npm test && webpack --config=build/webpack.app.config.js --env=production && electron-builder"
   },
   "dependencies": {
+    "biiif": "^0.1.2",
     "fs-jetpack": "^1.0.0"
   },
   "devDependencies": {

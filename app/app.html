@@ -1,13 +1,28 @@
 <!doctype html>
 <html>
+
 <head>
-  <meta charset="utf-8">
-  <title>Electron Boilerplate</title>
+	<meta charset="utf-8">
+	<title>Universal Viewer</title>
 </head>
+
 <body>
 
-  <div id="app" class="container" style="display: none;">
-    <h1 id="greet"></h1>
+	<div id="app" class="container" style="display: none;">
+
+		<form id="form1" onsubmit="return validateForm()">
+
+			<input type="text" id="url" value="http://universalviewer.io" required placeholder="Enter the URL where you want to host your files" oninvalid="this.setCustomValidity('Enter User Name Here')" oninput="setCustomValidity('')" />
+
+			<div id="dragarea">
+				Drag your folder here
+			</div>
+
+		</form>
+
+		<button type="submit" form="form1" value="Submit">Build IIIF</button>
+
+		<!-- <h1 id="greet"></h1>
     <p>
       Welcome to <a href="http://electron.atom.io" class="js-external-link">Electron</a> app running on this <strong id="os"></strong> machine.
     </p>
@@ -19,9 +34,10 @@
     </p>
     <p>
       Electron version: <strong id="electron-version"></strong>
-    </p>
-  </div>
+    </p> -->
+	</div>
 
-  <script src="app.js"></script>
+	<script src="app.js"></script>
 </body>
+
 </html>

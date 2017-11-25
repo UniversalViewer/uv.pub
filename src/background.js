@@ -15,42 +15,45 @@ import createWindow from "./helpers/window";
 import env from "env";
 
 const setApplicationMenu = () => {
-  const menus = [editMenuTemplate];
-  if (env.name !== "production") {
-    menus.push(devMenuTemplate);
-  }
-  Menu.setApplicationMenu(Menu.buildFromTemplate(menus));
+	if (env.name !== "production") {
+		const menus = [editMenuTemplate];
+		menus.push(devMenuTemplate);
+		Menu.setApplicationMenu(Menu.buildFromTemplate(menus));
+	} else {
+		Menu.setApplicationMenu(null); // disable top menu in prod
+	}
 };
 
 // Save userData in separate folders for each environment.
 // Thanks to this you can use production and development versions of the app
 // on same machine like those are two separate apps.
 if (env.name !== "production") {
-  const userDataPath = app.getPath("userData");
-  app.setPath("userData", `${userDataPath} (${env.name})`);
+	const userDataPath = app.getPath("userData");
+	app.setPath("userData", `${userDataPath} (${env.name})`);
 }
 
 app.on("ready", () => {
-  setApplicationMenu();
 
-  const mainWindow = createWindow("main", {
-    width: 600,
-    height: 600
-  });
+	setApplicationMenu();
 
-  mainWindow.loadURL(
-    url.format({
-      pathname: path.join(__dirname, "app.html"),
-      protocol: "file:",
-      slashes: true
-    })
-  );
+	const mainWindow = createWindow("main", {
+		width: 300,
+		height: 500
+	});
 
-  if (env.name === "development") {
-    //mainWindow.openDevTools();
-  }
+	mainWindow.loadURL(
+		url.format({
+			pathname: path.join(__dirname, "app.html"),
+			protocol: "file:",
+			slashes: true
+		})
+	);
+
+	if (env.name === "development") {
+		//mainWindow.openDevTools();
+	}
 });
 
 app.on("window-all-closed", () => {
-  app.quit();
+	app.quit();
 });

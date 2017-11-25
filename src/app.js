@@ -15,9 +15,6 @@ import env from "env";
 
 const app = remote.app;
 const appDir = jetpack.cwd(app.getAppPath());
-
-// Holy crap! This is browser window with HTML and stuff, but I can read
-// files from disk like it's node.js! Welcome to Electron world :)
 const manifest = appDir.read("package.json", "json");
 
 const osMap = {
@@ -27,8 +24,13 @@ const osMap = {
 };
 
 let directoryPath;
+let appContainer = document.querySelector("#app");
+let dragArea = document.querySelector('#dragarea');
+let form = document.querySelector('#form1');
+let url = document.querySelector('#url');
+let submit = document.querySelector('#submit');
 
-document.querySelector("#app").style.display = "block";
+appContainer.style.display = "block";
 
 document.addEventListener('drop', function (e) {
 	e.preventDefault();
@@ -37,7 +39,7 @@ document.addEventListener('drop', function (e) {
 	for (let f of e.dataTransfer.files) {
 		console.log('dragged: ', f.path);
 		directoryPath = f.path;
-		document.querySelector('#dragarea').innerHTML = f.name;
+		dragArea.innerHTML = f.name;
 	}
 });
 
@@ -46,19 +48,20 @@ document.addEventListener('dragover', function (e) {
 	e.stopPropagation();
 });
 
-document.querySelector('form').onsubmit = function() {
-
-    const url = document.querySelector('#url').value;
+form.onsubmit = function() {
 	
-	if (!url) {
+	if (!url.value) {
 		alert('please enter a url');
 		return false;
-	} else if (!directoryPath) {
+	} else if (!(directoryPath && jetpack.exists(directoryPath) && jetpack.inspect(directoryPath).type === "dir")) {
 		alert('please drag a folder into the region above');
 		return false;
 	}
+	submit.disable = true;
 	
-	build(directoryPath, url);
+	build(directoryPath, url.value);
+
+	submit.disable = false;
 
 	alert('Done!');
 

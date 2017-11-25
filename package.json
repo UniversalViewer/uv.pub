@@ -2,7 +2,7 @@
   "name": "universalviewer-electron",
   "productName": "Universal Viewer",
   "description": "Desktop companion for the Universal Viewer",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "private": true,
   "author": "Edward Silverton <e.silverton@gmail.com>",
   "copyright": "© 2017, Edward Silverton",

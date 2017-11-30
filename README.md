@@ -101,3 +101,5 @@ It will start the packaging process. Once the process finished, the `dist` direc
 We use [electron-builder](https://github.com/electron-userland/electron-builder) to handle the packaging process. It has a lot of [customization options](https://www.electron.build/configuration/configuration), which you can declare under `"build"` key in `package.json`.
 
 You can package your app cross-platform from a single operating system, [electron-builder kind of supports this](https://www.electron.build/multi-platform-build), but there are limitations and asterisks. That's why this boilerplate doesn't do that by default.
+
+[License CC BY-NC-SA 4.0](https://creativecommons.org/licenses/by-nc-sa/4.0/)

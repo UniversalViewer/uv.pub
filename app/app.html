@@ -12,15 +12,20 @@
 
 		<form id="form1" onsubmit="return validateForm()">
 
-			<input type="text" id="url" value="http://example.com" required placeholder="Enter the URL where you want to host your files" oninvalid="this.setCustomValidity('Enter User Name Here')" oninput="setCustomValidity('')" />
+			<!-- <input type="text" id="url" value="http://example.com" required placeholder="Enter the URL where you want to host your files" oninvalid="this.setCustomValidity('Enter User Name Here')" oninput="setCustomValidity('')" /> -->
 
 			<div id="dragarea">
-				Drag your folder here
+				<p>Drag your folder here</p>
 			</div>
 
 		</form>
 
-		<button id="submit" type="submit" form="form1" value="Submit">Build IIIF</button>
+		<button id="submit" type="submit" form="form1" value="Submit">Generate and share IIIF</button>
+
+		<div>
+			<a id="drag-iiif" href="#" title="Drag and drop into a IIIF viewer" target="_blank"></a>
+			<input type="text" id="dat-link-input" readonly />
+		</div>
 
 	</div>
 

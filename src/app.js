@@ -52,7 +52,7 @@ document.addEventListener('dragover', function (e) {
 	e.stopPropagation();
 });
 
-form.onsubmit = function() {
+form.onsubmit = () => {
 	
 	// if (!url.value) {
 	// 	alert('please enter a url');
@@ -74,24 +74,25 @@ form.onsubmit = function() {
 		const datkey = dat.key.toString('hex');
 		const datlink = urljoin(datgateway, datkey);
 
-		build(directorypath, datlink, datkey);
-	  
-		dat.importFiles();
-		dat.joinNetwork();
+		build(directorypath, datlink, true, datkey).then(() => {
 
-		const manifestUrl = urljoin(datlink, 'index.json');
-		dragiiif.style.display = 'block';
-		dragiiif.href = manifestUrl + '?manifest=' + manifestUrl;
-		datlinkinput.value = manifestUrl;
-		datlinkinput.style.display = 'block';
-		dragArea.innerHTML = '<p>Done! Drag the IIIF logo into a viewer, or copy and paste the URL.</p>';
+			dat.importFiles();
+			dat.joinNetwork();
+
+			const manifestUrl = urljoin(datlink, 'index.json');
+			dragiiif.style.display = 'block';
+			dragiiif.href = manifestUrl + '?manifest=' + manifestUrl;
+			datlinkinput.value = manifestUrl;
+			datlinkinput.style.display = 'block';
+			dragArea.innerHTML = '<p>Done! Drag the IIIF logo into a viewer, or copy and paste the URL.</p>';
+
+			submit.disable = false;
+		});
+	  
 	});
 
-	submit.disable = false;
-
-	//alert('Done!');
-
 	return false; // don't need to actually submit it.
+
 }
 
 /*

@@ -30,7 +30,6 @@ let form = document.querySelector('#form1');
 let datlinkinput = document.querySelector('#dat-link-input');
 let dragiiif = document.querySelector('#drag-iiif');
 let submit = document.querySelector('#submit');
-let foldername;
 
 appContainer.style.display = "block";
 datlinkinput.style.display = "none";

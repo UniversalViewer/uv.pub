@@ -41,7 +41,7 @@ document.addEventListener('drop', function (e) {
 	for (let f of e.dataTransfer.files) {
 		console.log('dragged: ', f.path);
 		directorypath = f.path;
-		foldername = f.name;
+		//foldername = f.name;
 		dragArea.innerHTML = '<p>Click below to generate and share your IIIF!</p>';
 	}
 });

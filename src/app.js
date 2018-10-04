@@ -21,7 +21,8 @@ const osMap = {
 	linux: "Linux"
 };
 
-const datgateway = 'http://174.138.105.19:3000';
+const datgateway = 'http://174.138.105.19:3000'; // damahub
+//const datgateway = 'http://142.93.234.230:3000'; // ed
 let directorypath;
 let appContainer = document.querySelector("#app");
 let dragArea = document.querySelector('#dragarea');

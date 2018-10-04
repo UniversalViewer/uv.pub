@@ -1,4 +1,4 @@
-# universalviewer-electron (work in progress)
+# uv.pub (work in progress)
 
 Quickly generate IIIF for use in the [Universal Viewer](https://universalviewer.io) using a visual interface.
 
@@ -9,8 +9,8 @@ Build with [Electron](http://electron.atom.io) and [biiif](http://github.com/eds
 The sole development dependency of this project is [Node.js](https://nodejs.org), so make sure you have it installed.
 Then type the following commands known to every Node developer...
 ```
-git clone https://github.com/universalviewer/universalviewer-electron.git
-cd universalviewer-electron
+git clone https://github.com/universalviewer/uv.pub.git
+cd uv.pub
 npm install
 npm start
 ```

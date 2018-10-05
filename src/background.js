@@ -37,7 +37,7 @@ app.on("ready", () => {
 	setApplicationMenu();
 
 	const mainWindow = createWindow("main", {
-		width: 300,
+		width: 350,
 		height: 500
 	});
 

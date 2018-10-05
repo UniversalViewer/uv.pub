@@ -62,6 +62,17 @@ form.onsubmit = () => {
 		return false;
 	}
 
+	// working...
+	// const workingInterval = window.setInterval(() => {
+	// 	if (dragArea.innerHTML.length > 3) {
+	// 		dragArea.innerHTML = "";
+	// 	} else {
+	// 		dragArea.innerHTML += ".";
+	// 	}
+	// }, 100);
+
+	dragArea.innerHTML = '<p>Working</p>';
+
 	submit.disable = true;
 
 	Dat(directorypath, function(err, dat) {
@@ -84,8 +95,9 @@ form.onsubmit = () => {
 			dragiiif.href = manifestUrl + '?manifest=' + manifestUrl;
 			datlinkinput.value = manifestUrl;
 			datlinkinput.style.display = 'block';
+			
+			//clearInterval(workingInterval);
 			dragArea.innerHTML = '<p>Done! Drag the IIIF logo into a viewer, or copy and paste the URL.</p>';
-
 			submit.disable = false;
 		});
 	  

@@ -1,16 +1,16 @@
 {
   "name": "uv.pub",
-  "productName": "Universal Viewer",
+  "productName": "uv.pub",
   "description": "Desktop companion for the Universal Viewer",
   "version": "0.0.1",
   "private": true,
   "author": "Edward Silverton <e.silverton@gmail.com>",
   "license": "CC BY-NC-SA 4.0",
   "copyright": "© 2017, Edward Silverton",
-  "homepage": "http://universalviewer.io",
+  "homepage": "https://uv.pub",
   "main": "app/background.js",
   "build": {
-    "appId": "io.universalviewer.electron",
+    "appId": "pub.uv",
     "files": [
       "app/**/*",
       "node_modules/**/*",
@@ -32,7 +32,7 @@
     "release": "npm test && webpack --config=build/webpack.app.config.js --env=production && electron-builder"
   },
   "dependencies": {
-    "biiif": "0.3.9",
+    "biiif": "0.3.14",
     "dat-node": "^3.5.8",
     "fs-jetpack": "^1.0.0",
     "url-join": "^4.0.0"

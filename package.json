@@ -5,7 +5,7 @@
   "version": "0.0.1",
   "private": true,
   "author": "Edward Silverton <e.silverton@gmail.com>",
-  "license": "CC BY-NC-SA 4.0",
+  "license": "MIT",
   "copyright": "© 2017, Edward Silverton",
   "homepage": "https://uv.pub",
   "main": "app/background.js",
@@ -32,7 +32,7 @@
     "release": "npm test && webpack --config=build/webpack.app.config.js --env=production && electron-builder"
   },
   "dependencies": {
-    "biiif": "0.3.14",
+    "biiif": "0.3.15",
     "dat-node": "^3.5.8",
     "fs-jetpack": "^1.0.0",
     "url-join": "^4.0.0"

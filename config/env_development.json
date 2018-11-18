@@ -1,4 +1,6 @@
 {
   "name": "development",
-  "description": "Add here any environment specific stuff you like."
+  "dat": {
+    "gateway": "http://127.0.0.1:3001"
+  }
 }

@@ -3,7 +3,7 @@
 
 <head>
 	<meta charset="utf-8">
-	<title>Universal Viewer</title>
+	<title>uv.pub</title>
 </head>
 
 <body>
@@ -15,7 +15,7 @@
 			<!-- <input type="text" id="url" value="http://example.com" required placeholder="Enter the URL where you want to host your files" oninvalid="this.setCustomValidity('Enter User Name Here')" oninput="setCustomValidity('')" /> -->
 
 			<div id="dragarea">
-				<p>Drag your folder here</p>
+				<p>Drag your file/folder here</p>
 			</div>
 
 		</form>
@@ -23,19 +23,20 @@
 		<!-- <button id="submit" type="submit" form="form1" value="Submit">Generate and share IIIF</button> -->
 
 		<div id="results">
-			<div>
-				<a id="drag-iiif" href="#" title="Drag and drop into a IIIF viewer" target="_blank"></a>
-				<input type="text" id="dat-link-input" readonly />
+			<div class="copy-icon">
+				<a id="dat-icon" class="icon" href="#" title="Drag and drop into Beaker Browser"></a>
+				<input type="text" id="dat-path" readonly />
 			</div>
-
-			<div>
-				<a id="dat-key" href="#" title="Dat key"></a>
+			<div class="copy-icon">
+				<a id="iiif-icon" class="icon" href="#" title="Drag and drop into a IIIF viewer"></a>
+				<input type="text" id="http-path" readonly />
 			</div>
 		</div>
 
 	</div>
 
 	<script src="app.js"></script>
+
 </body>
 
 </html>

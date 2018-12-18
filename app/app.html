@@ -10,6 +10,10 @@
 
 	<div id="app" class="container" style="display: none;">
 
+		<div class="gateway">
+			<input type="text" id="http-gateway" placeholder="http gateway" />
+		</div>
+
 		<form id="form1" onsubmit="return validateForm()">
 
 			<!-- <input type="text" id="url" value="http://example.com" required placeholder="Enter the URL where you want to host your files" oninvalid="this.setCustomValidity('Enter User Name Here')" oninput="setCustomValidity('')" /> -->
@@ -23,10 +27,10 @@
 		<!-- <button id="submit" type="submit" form="form1" value="Submit">Generate and share IIIF</button> -->
 
 		<div id="results">
-			<div class="copy-icon">
+			<!-- <div class="copy-icon">
 				<a id="dat-icon" class="icon" href="#" title="Drag and drop into Beaker Browser"></a>
 				<input type="text" id="dat-path" readonly />
-			</div>
+			</div> -->
 			<div class="copy-icon">
 				<a id="iiif-icon" class="icon" href="#" title="Drag and drop into a IIIF viewer"></a>
 				<input type="text" id="http-path" readonly />

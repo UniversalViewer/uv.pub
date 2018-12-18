@@ -22,17 +22,18 @@ const osMap = {
 	linux: "Linux"
 };
 
-const datGateway = env.dat.gateway;
-let dropPath, datKey, datUrl;
+//const datGateway = env.dat.gateway;
+let dropPath, datKey;
 const appContainer = document.querySelector("#app");
 const dragArea = document.querySelector('#dragarea');
 const results = document.querySelector('#results');
 //const form = document.querySelector('#form1');
 //const url = document.querySelector('#url');
 const iiifIcon = document.querySelector('#iiif-icon');
+const httpGateway = document.querySelector('#http-gateway');
 const httpPath = document.querySelector('#http-path');
-const datIcon = document.querySelector('#dat-icon');
-const datPath = document.querySelector('#dat-path');
+//const datIcon = document.querySelector('#dat-icon');
+//const datPath = document.querySelector('#dat-path');
 //const submit = document.querySelector('#submit');
 
 appContainer.style.display = 'block';
@@ -114,9 +115,19 @@ function dropped() {
 		} else {
 
 			datKey = dat.key.toString('hex');
-			datUrl = urljoin(datGateway, datKey);
 
-			build(dropPath, datUrl, true, datKey).then(() => {
+			// if a http-gateway has been set, generate the urls relative to that.
+			// otherwise, use the dat key for sharing in beaker
+
+			let baseUrl;
+
+			if (httpGateway.value) {
+				baseUrl = urljoin(httpGateway.value, datKey);
+			} else {
+				baseUrl = 'dat://' + datKey;
+			}
+			
+			build(dropPath, baseUrl, true, datKey).then(() => {
 
 				dat.archive.on('error', () => {
 					alert(err);
@@ -127,13 +138,16 @@ function dropped() {
 
 					dat.joinNetwork();
 
-					const datUrl = 'dat://' + datKey;
-					datIcon.href = datUrl;
-					datPath.value = datUrl;
+					let url;
 
-					const httpUrl = urljoin(urljoin(datGateway, datKey), 'index.json');
-					iiifIcon.href = httpUrl + '?manifest=' + httpUrl;
-					httpPath.value = httpUrl;
+					if (httpGateway.value) {
+						url = urljoin(urljoin(httpGateway.value, datKey), 'index.json');						
+					} else {
+						url = 'dat://' + datKey + '/index.json';
+					}
+
+					iiifIcon.href = url + '?manifest=' + url;
+					httpPath.value = url;
 
 					results.style.display = 'block';
 

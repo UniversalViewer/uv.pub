@@ -32,8 +32,8 @@ const results = document.querySelector('#results');
 const iiifIcon = document.querySelector('#iiif-icon');
 const httpGateway = document.querySelector('#http-gateway');
 const httpPath = document.querySelector('#http-path');
-//const datIcon = document.querySelector('#dat-icon');
-//const datPath = document.querySelector('#dat-path');
+const datIcon = document.querySelector('#dat-icon');
+const datPath = document.querySelector('#dat-path');
 //const submit = document.querySelector('#submit');
 
 appContainer.style.display = 'block';
@@ -108,7 +108,7 @@ function dropped() {
 	dragArea.innerHTML = '<p>Working</p>';
 
 	Dat(dropPath, (err, dat) => {
-		
+
 		if (err) {
 			alert(err);
 			return;
@@ -126,7 +126,7 @@ function dropped() {
 			} else {
 				baseUrl = 'dat://' + datKey;
 			}
-			
+
 			build(dropPath, baseUrl, true, datKey).then(() => {
 
 				dat.archive.on('error', () => {
@@ -138,16 +138,20 @@ function dropped() {
 
 					dat.joinNetwork();
 
-					let url;
+          let url;
+          let datUrl = 'dat://' + datKey;
 
 					if (httpGateway.value) {
-						url = urljoin(urljoin(httpGateway.value, datKey), 'index.json');						
+						url = urljoin(urljoin(httpGateway.value, datKey), 'index.json');
 					} else {
-						url = 'dat://' + datKey + '/index.json';
+						url = datUrl + '/index.json';
 					}
 
 					iiifIcon.href = url + '?manifest=' + url;
-					httpPath.value = url;
+          httpPath.value = url;
+
+          datIcon.href = datUrl;
+          datPath.value = datUrl;
 
 					results.style.display = 'block';
 
@@ -156,7 +160,7 @@ function dropped() {
 					//submit.disable = false;
 
 				});
-				
+
 			});
 
 		}
@@ -165,7 +169,7 @@ function dropped() {
 
 /*
 form.onsubmit = () => {
-	
+
 	if (!(dropPath && jetpack.exists(dropPath) && jetpack.inspect(dropPath).type === 'dir')) {
 		alert('please drag a folder into the region above');
 		return false;

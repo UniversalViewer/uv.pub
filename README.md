@@ -1,4 +1,4 @@
-# uv.pub (work in progress)
+# uv.pub
 
 ![](uv-pub.gif)
 

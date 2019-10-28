@@ -6,7 +6,7 @@ Quickly generate [IIIF Presentation JSON](https://iiif.io/api/presentation/3.0/)
 
 [UV.pub](https://uv.pub) stores your IIIF assets in a [Dat](https://dat.foundation) archive. This can be used in conjunction with a tool like [FuseBot](https://gitlab.com/mnemoscene/fusebot) to preserve your Dat archive on a server, and make it available over HTTP.
 
-UV.pub is built with [Electron](http://electron.atom.io), [dat-node](https://github.com/datproject/dat-node), and [biiif](http://github.com/edsilv/biiif)
+[UV.pub](https://uv.pub) is built with [Electron](http://electron.atom.io), [dat-node](https://github.com/datproject/dat-node), and [biiif](http://github.com/edsilv/biiif)
 
 # Contributing
 
